@@ -9,21 +9,26 @@ class Normal extends Comedor{
         super(capacidad, racionesPorAnimal);
     }
 
+
+    recargar(): void{
+        this.cantidadComida < 10000? this.cantidadComida += 3000 : console.error("No necesito recargar"); 
+    }
+
     agregarAnimal(animal: Animal): void{
         animal.hambre > 0 && animal.peso < this.maximoSoporte? 
         this.animales.push(animal) : console.error("No puede ingresar");
-
     }
 
-    alimentar(animal: Animal): void{
-
+    darDeComer(animal: Animal): void{
         if(this.animales.includes(animal))
-            this.cantidadAlimento - this.cantidadDada >= 0? animal.comer(this.cantidadDada) : console.error("No se puede dar más raciones");
+            if(this.cantidadComida - this.racionComida >= 0){
+                animal.comer(this.racionComida);
+                this.cantidadComida -= this.racionComida;
+            }else
+                console.error("No se puede dar más raciones");
         else
             console.error("El animal no se encuentra en el comedero")
     }
 
-    recargar(): void{
-        this.cantidadAlimento < 10? this.cantidadAlimento += 3000 : console.error("No necesito recargar"); 
-    }
+
 }

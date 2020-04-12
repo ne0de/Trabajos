@@ -1,19 +1,21 @@
+import { Animal } from "../Animales/Animal";
+
 export class Comedor{
     animales: Array<object>;
     capacidad: number = 0;
-    cantidadDada: number = 0;
-    cantidadAlimento: number = 0;
+    racionComida: number = 0;
+    cantidadComida: number = 0;
 
-    constructor(capacidad: number, racionesPorAnimal: number){
+    constructor(capacidad: number, racionComida: number){
         this.capacidad = capacidad
-        this.cantidadDada = racionesPorAnimal;
+        this.racionComida = racionComida;
     }
  
     agregarAnimal(animal: object): void{}
 
-    alimentarAnimales(): void{}
+    darDeComer(animal: Animal): void{}
 
-    cargar(): void{
-        //this.raciones < 10? this.raciones += 30 : console.error("No necesito recargar"); 
-    }
+    darDeBeber(animal: Animal): void{}
+
+    cargar(): void{}
 }
