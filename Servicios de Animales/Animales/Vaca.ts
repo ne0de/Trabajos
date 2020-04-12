@@ -4,6 +4,7 @@ class Vaca extends Animal{
 
     constructor(peso: number, vacuna: boolean){
         super(peso, vacuna);
+        this.convieneVacunar = true || false;
     }
 
     comer(gramos: number = 0): void{
@@ -21,10 +22,6 @@ class Vaca extends Animal{
 
     caminar(): void{ 
         this.peso -= 3; 
-    }
-
-    vacunar(): void{ 
-        this.tieneVacuna? console.error("La vaca estoy vacunado") : this.tieneVacuna = true;
     }
 }
 

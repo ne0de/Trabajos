@@ -11,11 +11,12 @@ export class Comedor{
         this.racionComida = racionComida;
     }
  
+    recargar(): void{}
+
     agregarAnimal(animal: object): void{}
 
     darDeComer(animal: Animal): void{}
 
     darDeBeber(animal: Animal): void{}
 
-    cargar(): void{}
 }

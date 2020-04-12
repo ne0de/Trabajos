@@ -5,10 +5,9 @@ class Normal extends Comedor{
 
     maximoSoporte: number = 200;
 
-    constructor(capacidad: number, racionesPorAnimal: number){
-        super(capacidad, racionesPorAnimal);
+    constructor(capacidad: number, racionComida: number){
+        super(capacidad, racionComida);
     }
-
 
     recargar(): void{
         this.cantidadComida < 10000? this.cantidadComida += 3000 : console.error("No necesito recargar"); 
@@ -20,15 +19,8 @@ class Normal extends Comedor{
     }
 
     darDeComer(animal: Animal): void{
-        if(this.animales.includes(animal))
-            if(this.cantidadComida - this.racionComida >= 0){
-                animal.comer(this.racionComida);
-                this.cantidadComida -= this.racionComida;
-            }else
-                console.error("No se puede dar más raciones");
-        else
-            console.error("El animal no se encuentra en el comedero")
+        if(this.animales.includes(animal) && (this.cantidadComida - this.racionComida >= 0))
+            animal.comer(this.racionComida);
+            this.cantidadComida -= this.racionComida;
     }
-
-
 }

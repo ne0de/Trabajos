@@ -1,28 +1,50 @@
 import {Comedor} from "./Comedor";
 import {Animal} from "../Animales/Animal";
 
-class Normal extends Comedor{
+class Inteligente extends Comedor{
 
-    constructor(capacidad: number, racionesPorAnimal: number){
-        super(capacidad, racionesPorAnimal);
+    vacunas: number = 0;
+    usoBebedero: number = 0;
+
+    constructor(capacidad: number, racionComida: number, vacunas: number){
+        super(capacidad, racionComida);
+        this.vacunas = vacunas;
+    }
+
+    recargarVacunas(): void{
+        if(this.vacunas == 0)
+            this.vacunas += 50;
+    }
+
+    recargarComida(): void{
+        if(this.cantidadComida < 15000)
+            this.cantidadComida = this.capacidad
     }
 
     agregarAnimal(animal: Animal): void{
-        !this.animales.includes(animal)? this.animales.push(animal) : console.error("Ya está en el comedero");
+        if(!this.animales.includes(animal))
+            this.animales.push(animal);
     }
 
     darDeComer(animal: Animal): void{
-        if(this.animales.includes(animal))
-            this.cantidadAlimento - this.cantidadDada >= 0? 
-            animal.comer(animal.peso/100) : console.error("No se puede dar más raciones");
-        else
-            console.error("El animal no se encuentra en el comedero")
+        if(this.animales.includes(animal) && (this.cantidadComida - this.racionComida <= 0))
+            animal.comer(animal.peso/100);
     }
 
+    vacunar(animal: Animal): void{
+        if(animal.convieneVacunar){
+            animal.vacunar();
+            this.vacunas--;
+        }
+    }
+
+    recargarBebedero(): void{ this.usoBebedero = 0; }
+
     darDeBeber(animal: Animal): void{
-        animal.sed? 
+        if(this.usoBebedero < 20 && animal.sed){
+            animal.beber();
+            this.usoBebedero++;
+        }
     }
-    recargar(): void{
-        this.cantidadComida < 15000? this.cantidadComida = this.capacidad : console.error("No necesito recargar"); 
-    }
+
 }

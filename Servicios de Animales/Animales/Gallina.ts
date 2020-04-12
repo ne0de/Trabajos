@@ -8,6 +8,7 @@ class Gallina extends Animal{
         super(4, vacuna);
         this.sed = false;
         this.hambre = 10;
+        this.convieneVacunar = false;
     }
 
     cuantoComi(): number{

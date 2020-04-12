@@ -3,6 +3,7 @@ export class Animal{
     peso: number = 0;
     hambre: number = 0;
     tieneVacuna: boolean = undefined;
+    convieneVacunar: boolean = undefined;
 
     constructor(peso: number, vacunada: boolean){ 
         this.peso = peso; 
@@ -14,4 +15,9 @@ export class Animal{
     beber(): void{}
 
     caminar(): void{}
+
+    vacunar(): void{ 
+        if(!this.tieneVacuna)
+            this.tieneVacuna = true;
+    }
 }
