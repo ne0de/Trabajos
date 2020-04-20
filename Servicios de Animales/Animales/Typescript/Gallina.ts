@@ -15,7 +15,7 @@ class Gallina extends Animal{
         return this.vecesComiendo;
     }
 
-    comer(): void{
+    comer(gramos: number = 0): void{
         this.vecesComiendo++;
     }
 
