@@ -21,6 +21,10 @@ export class Cerdo extends Animal{
         return this.vecesComiendo;
     }
     
+    vacunar(): void{
+        this.vacunado = true;
+    }
+    
     beber(): void{
         super.beber();
         this.vecesComiendo = 0;

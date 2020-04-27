@@ -15,6 +15,10 @@ export class Gallina extends Animal{
 
     beber(): void{}
 
+    vacunar(){
+        console.error("No conviene vacunarlo");
+    }
+    
     cuantasVecesComi(){
         return this.vecesComiendo;
     }
