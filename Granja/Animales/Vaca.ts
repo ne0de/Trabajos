@@ -1,15 +1,14 @@
 import { Animal } from "./Animal";
 
 export class Vaca extends Animal{
-
     constructor(peso: number){
-        super(peso);
+        super(peso, true);
     }
 
-    comer(gramos: number = 0){
-        this.aumentarPeso(gramos/3)
+    comer(gramos: number): void{
+        super.comer(gramos/3);
         this.sed = true;
-        this.tendreHambre();
+        this.hambre = this.peso < 200;
     }
 
     beber(): void{
@@ -19,9 +18,5 @@ export class Vaca extends Animal{
 
     caminar(): void{
         this.bajarPeso(3000);
-    }
-
-    tendreHambre(): void{
-        this.hambre = this.peso < 200000;
     }
 }
