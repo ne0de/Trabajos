@@ -4,9 +4,9 @@ import { Animal } from "../Animales/Animal";
 export class Bebedero extends Dispositivo{
     animalesAtendidos: number = 0;
 
-    constructor(animalesAtendidos){
+    constructor(){
         super(0);
-        this.animalesAtendidos = animalesAtendidos;
+        this.animalesAtendidos = 0;
     }
 
     puedeAtender(animal: Animal): boolean{

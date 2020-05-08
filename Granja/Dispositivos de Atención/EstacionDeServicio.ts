@@ -1,19 +1,21 @@
 import { Dispositivo } from "./Dispositivo";
+import { Animal } from "../Animales/Animal";
 
 export class EstacionDeServicio{
-    dispositivos: Dispositivo[];
 
-    agregarDispositivo(dispositivo: Dispositivo){
-        if(this.dispositivos.length < 3)
-            this.dispositivos.push(dispositivo);
+    primerDis: Dispositivo;
+    segundoDis: Dispositivo;
+    tercerDis: Dispositivo;
+
+    constructor(primerDis, segundoDis, tercerDis){
+        this.primerDis = primerDis;
+        this.segundoDis = segundoDis;
+        this.tercerDis = tercerDis;
     }
 
-    atender(dispositivo, animal): void{
-        if(this.tieneDispositivo(dispositivo) != -1)
-            dispositivo.ofrecerServicio(dispositivo, animal);
-    }
-
-    tieneDispositivo(dispositivo: Dispositivo): number{
-        return this.dispositivos.indexOf(dispositivo);
+    atender(animal): void{
+        this.primerDis.ofrecerServicio(animal);
+        this.segundoDis.ofrecerServicio(animal);
+        this.tercerDis.ofrecerServicio(animal);
     }
 }

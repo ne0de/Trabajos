@@ -2,15 +2,19 @@ import { Vaca } from "./Animales/Vaca";
 import { Cerdo } from "./Animales/Cerdo";
 import { Comedero } from "./Dispositivos de Atención/Comedero";
 import { EstacionDeServicio } from "./Dispositivos de Atención/EstacionDeServicio";
+import { Bebedero } from "./Dispositivos de Atención/Bebedero";
+import { Vacunatorio } from "./Dispositivos de Atención/Vacunatorio";
 
 var vaquita = new Vaca(205000);
-var estacionServicio = new EstacionDeServicio();
+var bebedero = new Bebedero();
+var vacunatorio = new Vacunatorio(100);
 var comederoNormal = new Comedero(15000, 300000, 5000);
 
-estacionServicio.agregarDispositivo(comederoNormal);
+var estacionServicio = new EstacionDeServicio(comederoNormal, bebedero, vacunatorio);
 
-estacionServicio.atender(comederoNormal, vaquita);
-estacionServicio.atender(comederoNormal, vaquita);
+estacionServicio.atender(vaquita);
+estacionServicio.atender(vaquita);
+estacionServicio.atender(vaquita);
 
 comederoNormal.recargar();
 
